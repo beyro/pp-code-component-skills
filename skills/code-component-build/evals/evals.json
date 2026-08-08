@@ -1,0 +1,22 @@
+{
+  "skill_name": "code-component-build",
+  "evals": [
+    {
+      "id": 1,
+      "eval_name": "priority-badge-tdd-implement",
+      "prompt": "Implement the PCF control from design-spec.md — tests first, then code.",
+      "expected_output": "TDD implementation of the PriorityBadge field control: Jest/RTL tests written first covering the design-spec's Test Plan (badge color from bound value, dropdown selection notifying the host, disabled state, destroy cleanup), confirmed to fail for the right reason, then index.ts/component implemented to make them pass. FluentProvider wraps the tree using context.fluentDesignLanguage?.tokenTheme with a webLightTheme fallback. npm test and npm run build both succeed.",
+      "files": [],
+      "expectations": [
+        "Real test files exist under __tests__/ beyond just contextMock.ts, covering the spec's Test Plan items",
+        "notifyOutputChanged is called on user interaction and getOutputs returns the new value",
+        "context.mode.isControlDisabled is honored (disabled state handled)",
+        "FluentProvider theme uses context.fluentDesignLanguage?.tokenTheme with webLightTheme fallback (not the raw wrapper object)",
+        "No ReactDOM.createRoot/ReactDOM.render usage (virtual control, framework owns mounting)",
+        "npm test exits 0",
+        "npm run build exits 0 and the log does not contain \"[build] Failed\"",
+        "Test scope roughly matches the spec's stated Test Plan (4 items) rather than expanding into extra test files/suites beyond what was asked"
+      ]
+    }
+  ]
+}

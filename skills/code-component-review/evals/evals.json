@@ -1,0 +1,20 @@
+{
+  "skill_name": "code-component-review",
+  "evals": [
+    {
+      "id": 1,
+      "eval_name": "satisfaction-slider-audit-injected-bugs",
+      "prompt": "Review my PCF control before I ship it.",
+      "expected_output": "An audit report of the SatisfactionSlider control, which has three deliberately injected Critical-severity bugs planted for this eval: (1) context.mode.isControlDisabled is ignored — disabled is hardcoded to false, so a read-only form would still show an editable slider; (2) the FluentProvider theme is passed the raw context.fluentDesignLanguage wrapper instead of its .tokenTheme property; (3) init() adds a window resize listener that destroy() never removes. The report should catch all three as Critical with file:line and a concrete fix, and conclude fix-then-ship (not ship).",
+      "files": [],
+      "expectations": [
+        "Flags that context.mode.isControlDisabled is ignored (disabled hardcoded to false) as Critical",
+        "Flags the FluentProvider theme using context.fluentDesignLanguage directly instead of .tokenTheme as Critical",
+        "Flags the window.addEventListener(\"resize\", ...) in init() with no matching removal in destroy() as a Critical memory leak",
+        "Findings cite file:line and a concrete fix, not vague \"consider improving\" language",
+        "Final verdict is fix-then-ship, not ship",
+        "Does not rewrite the code itself (report only, unless explicitly asked to fix)"
+      ]
+    }
+  ]
+}

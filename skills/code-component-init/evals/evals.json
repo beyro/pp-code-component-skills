@@ -1,0 +1,38 @@
+{
+  "skill_name": "code-component-init",
+  "evals": [
+    {
+      "id": 1,
+      "eval_name": "field-control-priority-badge",
+      "prompt": "Scaffold the PCF field control described in design-spec.md into a new project. Run pac pcf init and get it fully wired up (deps installed, manifest configured, Jest working).",
+      "expected_output": "A new PCF project (pac pcf init --template field --framework react) with ControlManifest.Input.xml containing a bound OptionSet property named 'value', Fluent UI v9 installed, Jest/RTL scaffolding present with no test files yet, and `npm run build` succeeding.",
+      "files": ["evals/files/design-spec-field.md"],
+      "expectations": [
+        "ControlManifest.Input.xml exists with control-type=\"virtual\"",
+        "Manifest has a <property> with name=\"value\", of-type=\"OptionSet\", usage=\"bound\", required=\"true\"",
+        "package.json includes @fluentui/react-components",
+        "jest.config.js, jest.setup.ts, and a __tests__/contextMock.ts exist",
+        "No spec-behavior test files were written (that's code-component-build's job)",
+        "npm run build exits 0",
+        "npx jest --showConfig exits 0 without requiring any test files to exist"
+      ]
+    },
+    {
+      "id": 2,
+      "eval_name": "dataset-control-account-cards",
+      "prompt": "Run pac pcf init for the dataset control in design-spec.md and set up the project (deps, manifest, Jest).",
+      "expected_output": "A new PCF project (pac pcf init --template dataset --framework react) with a <data-set> element and a pageSize input property in ControlManifest.Input.xml, Fluent UI v9 installed, Jest/RTL scaffolding present with no test files yet, and `npm run build` succeeding.",
+      "files": ["evals/files/design-spec-dataset.md"],
+      "expectations": [
+        "ControlManifest.Input.xml exists with control-type=\"virtual\"",
+        "Manifest has a <data-set> element",
+        "Manifest has a <property> with name=\"pageSize\", of-type=\"Whole.None\", usage=\"input\", required=\"false\"",
+        "package.json includes @fluentui/react-components",
+        "jest.config.js, jest.setup.ts, and a __tests__/contextMock.ts exist",
+        "No spec-behavior test files were written (that's code-component-build's job)",
+        "npm run build exits 0",
+        "npx jest --showConfig exits 0 without requiring any test files to exist"
+      ]
+    }
+  ]
+}

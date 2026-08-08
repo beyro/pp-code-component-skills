@@ -1,0 +1,22 @@
+{
+  "skill_name": "pp-code-component-skills (full suite: design -> init -> build -> review)",
+  "evals": [
+    {
+      "id": 1,
+      "eval_name": "satisfaction-slider-full-pipeline",
+      "prompt": "I need a PCF field control for our CRM: a satisfaction score slider (1-5) that binds to a Whole.None column. Please design it, scaffold the project, implement it with tests, and give it a pre-ship review before I call it done.",
+      "expected_output": "A single continuous session that chains all four skills in order: code-component-design produces design-spec.md, code-component-init scaffolds the project from that spec, code-component-build TDD-implements the slider (tests first, then code) with npm test and npm run build passing, and code-component-review audits the finished control and reports a ship/fix-then-ship verdict with no unresolved Critical findings.",
+      "files": [],
+      "expectations": [
+        "design-spec.md exists and names a Field Control with one bound Whole.None property",
+        "ControlManifest.Input.xml exists, control-type=\"virtual\", with a bound property matching the spec",
+        "Test files exist under __tests__/ beyond just contextMock.ts (code-component-build wrote real tests)",
+        "npm test exits 0",
+        "npm run build exits 0",
+        "The final report includes a review verdict (ship or fix-then-ship) with no unresolved Critical findings",
+        "The control is wrapped in FluentProvider using context.fluentDesignLanguage with a webLightTheme fallback",
+        "context.mode.isControlDisabled is handled (disabled/read-only rendering)"
+      ]
+    }
+  ]
+}

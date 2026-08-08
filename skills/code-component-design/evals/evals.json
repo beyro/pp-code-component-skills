@@ -1,0 +1,20 @@
+{
+  "skill_name": "code-component-design",
+  "evals": [
+    {
+      "id": 1,
+      "eval_name": "approval-status-design-decision",
+      "prompt": "I want a PCF component for our CRM that shows whether a deal is approved or not. Help me figure out what we need before you build anything — nothing exists yet, no code, no scaffolding.",
+      "expected_output": "A design-spec.md that correctly identifies this as a Field Control (a single per-record status, not a list of records), with exactly one bound property (e.g. TwoOptions or OptionSet), a populated Assumptions section recording the ambiguous calls made (e.g. TwoOptions vs OptionSet, display style), and no code, manifest, or scaffolding created — the design skill's own constraint is to interview and write the spec only.",
+      "files": [],
+      "expectations": [
+        "A design-spec.md (or equivalently named spec document) exists at the workspace root",
+        "The spec identifies Component Type as Field Control, not Dataset Control",
+        "The Properties table lists exactly one bound property",
+        "An Assumptions section (or equivalent) exists and is non-empty",
+        "No ControlManifest.Input.xml, index.ts, or any project scaffolding was created — the design phase produced only a written spec, no code",
+        "The spec is immediately actionable by code-component-init: every property has a single committed type/direction, not a conditional left pending external stakeholder confirmation (e.g. 'TwoOptions (or Enum if...)' or a blocking open-questions list gating scaffolding)"
+      ]
+    }
+  ]
+}
