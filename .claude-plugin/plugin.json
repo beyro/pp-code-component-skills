@@ -1,0 +1,12 @@
+{
+  "name": "pcf-controls",
+  "description": "Design, scaffold, implement, and review Power Apps Component Framework (PCF) code components with Fluent UI v9 and TDD.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Beyro"
+  },
+  "homepage": "https://github.com/beyro/pp-code-component-skills.git",
+  "repository": "https://github.com/beyro/pp-code-component-skills.git",
+  "license": "MIT",
+  "keywords": ["pcf", "power-apps", "power-platform", "dataverse", "react", "fluent-ui"]
+}

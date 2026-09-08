@@ -1,0 +1,30 @@
+{
+  "name": "pp-code-component-skills",
+  "version": "1.0.0",
+  "description": "Agent Skills for the full Power Apps Component Framework (PCF) code component lifecycle: design, scaffold, build, review.",
+  "keywords": [
+    "pi-package",
+    "agent-skills",
+    "pcf",
+    "power-apps",
+    "power-platform",
+    "dataverse",
+    "claude-code"
+  ],
+  "license": "MIT",
+  "author": "Byron Matus",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/byronmatus/pp-code-component-skills.git"
+  },
+  "homepage": "https://github.com/byronmatus/pp-code-component-skills",
+  "pi": {
+    "skills": ["./skills"]
+  },
+  "files": [
+    "skills",
+    ".claude-plugin",
+    "README.md",
+    "LICENSE"
+  ]
+}

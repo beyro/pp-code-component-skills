@@ -1,0 +1,14 @@
+{
+  "name": "pp-code-component-skills",
+  "owner": {
+    "name": "Byron Matus"
+  },
+  "description": "Agent Skills for the full Power Apps Component Framework (PCF) code component lifecycle: design, scaffold, build, review.",
+  "plugins": [
+    {
+      "name": "pcf-controls",
+      "source": "./",
+      "description": "Design, scaffold, implement, and review Power Apps Component Framework (PCF) code components with Fluent UI v9 and TDD."
+    }
+  ]
+}

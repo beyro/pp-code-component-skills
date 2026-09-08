@@ -6,7 +6,6 @@ metadata:
   suite: pp-code-component-skills
   consumes: design-spec.md
 ---
-
 # Code Component Init
 
 Scaffold a PCF code component project from `design-spec.md`. "PCF Control" and "Code Component" are interchangeable.
@@ -14,13 +13,13 @@ Scaffold a PCF code component project from `design-spec.md`. "PCF Control" and "
 ## Prerequisites check
 
 1. Verify the tooling exists before doing anything else:
-   ```pwsh
+  ```pwsh
    pac --version
    node --version
    npm --version
-   ```
-   If `pac` is missing, try to install it. If you are not able to install it, tell the user to install the Power Platform CLI (https://aka.ms/PowerPlatformCLI) and stop.
+  ```
 
+   If `pac` is missing, try to install it. If you are not able to install it, tell the user to install the Power Platform CLI ([https://aka.ms/PowerPlatformCLI](https://aka.ms/PowerPlatformCLI)) and stop.
 2. Read `design-spec.md` from the workspace root. If it does not exist, stop and invoke the `code-component-design` skill first — do not guess the manifest properties.
 
 ## Workflow
@@ -30,8 +29,8 @@ Scaffold a PCF code component project from `design-spec.md`. "PCF Control" and "
 Create a new empty directory for the project and run:
 
 ```pwsh
-mkdir <ControlName>; cd <ControlName>
-pac pcf init --namespace <Namespace> --name <ControlName> --template <field|dataset> --framework react --run-npm-install
+mkdir [[ORCA_RICH_MD:028009a182882fb1d18a18f036614b7a:inline-html:%3CControlName%3E]]; cd [[ORCA_RICH_MD:028009a182882fb1d18a18f036614b7a:inline-html:%3CControlName%3E]]
+pac pcf init --namespace [[ORCA_RICH_MD:028009a182882fb1d18a18f036614b7a:inline-html:%3CNamespace%3E]] --name [[ORCA_RICH_MD:028009a182882fb1d18a18f036614b7a:inline-html:%3CControlName%3E]] --template <field|dataset> --framework react --run-npm-install
 ```
 
 - `--template field` for Field Controls, `dataset` for Dataset Controls (from the spec).
@@ -78,9 +77,9 @@ Create `jest.config.js` at the project root:
 module.exports = {
   preset: 'ts-jest',
   testEnvironment: 'jest-environment-jsdom',
-  roots: ['<rootDir>/<ControlName>'],
+  roots: ['[[ORCA_RICH_MD:028009a182882fb1d18a18f036614b7a:inline-html:%3CrootDir%3E]]/[[ORCA_RICH_MD:028009a182882fb1d18a18f036614b7a:inline-html:%3CControlName%3E]]'],
   testMatch: ['**/*.test.ts?(x)'],
-  setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
+  setupFilesAfterEnv: ['[[ORCA_RICH_MD:028009a182882fb1d18a18f036614b7a:inline-html:%3CrootDir%3E]]/jest.setup.ts'],
   moduleNameMapper: { '\\.(css|less|scss)$': 'identity-obj-proxy' },
 };
 ```
@@ -106,12 +105,12 @@ npx jest --showConfig
 
 The build must succeed. No test files exist yet — that's expected, since writing them is `code-component-build`'s job (TDD red comes from that skill, not from init). Use `npx jest --showConfig` instead of `npm test` to confirm the Jest config itself resolves cleanly (preset, transform, moduleNameMapper) without tripping Jest's "no tests found" exit code. Fix any scaffolding or config errors before finishing.
 
-## Constraints & best practices
+## Constraints &amp; best practices
 
-- Never run `pac pcf init` in a non-empty directory; it will fail or clobber files.
-- Do not modify generated files beyond what the spec requires — no gratuitous reformatting of `pcfconfig.json`, `tsconfig.json`, or the generated class.
-- Do not implement component logic here; that is `code-component-build`'s job.
-- Pin nothing and add no packages beyond the lists above unless the spec demands it.
+- ONLY run `pac pcf init` in a clean, empty directory so it will not fail or clobber files.
+- ONLY modify generated files to what the spec requires — no gratuitous reformatting of `pcfconfig.json`, `tsconfig.json`, or the generated class.
+- ONLY initialize the component here. DO NOT implement component logic; that is `code-component-build`'s job.
+- ONLY add the packages listed above unless the spec demands it.
 
 ## Example user prompts
 
@@ -119,3 +118,4 @@ The build must succeed. No test files exist yet — that's expected, since writi
 - "Set up a new dataset code component project with React and Fluent."
 - "Run pac pcf init and get Jest working for this control."
 - "Create the project for the slider field control we designed."
+
