@@ -36,7 +36,7 @@ This repo is packaged two ways: as a Claude Code plugin (with its own marketplac
 ### Claude Code
 
 ```
-/plugin marketplace add byronmatus/pp-code-component-skills
+/plugin marketplace add beyro/pp-code-component-skills
 /plugin install pcf-controls@pp-code-component-skills
 ```
 
