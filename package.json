@@ -15,9 +15,9 @@
   "author": "Byron Matus",
   "repository": {
     "type": "git",
-    "url": "https://github.com/byronmatus/pp-code-component-skills.git"
+    "url": "https://github.com/beyro/pp-code-component-skills.git"
   },
-  "homepage": "https://github.com/byronmatus/pp-code-component-skills",
+  "homepage": "https://github.com/beyro/pp-code-component-skills",
   "pi": {
     "skills": ["./skills"]
   },
